@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visual Portfolio — Photographer & Video Editor</title>
+<title>Lalith — Video Editor · Photographer · Visual Storyteller</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -18,7 +18,6 @@
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -26,33 +25,8 @@
     color: var(--white);
     font-family: 'Syne', sans-serif;
     overflow-x: hidden;
-    cursor: none;
+    cursor: default;
   }
-
-  /* Custom cursor */
-  .cursor {
-    position: fixed;
-    width: 12px; height: 12px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s, background 0.2s;
-    mix-blend-mode: difference;
-  }
-  .cursor-ring {
-    position: fixed;
-    width: 40px; height: 40px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.15s ease;
-    opacity: 0.6;
-  }
-  body:hover .cursor { opacity: 1; }
 
   /* NAV */
   nav {
@@ -63,7 +37,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 28px 60px;
-    mix-blend-mode: difference;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.9), transparent);
+    backdrop-filter: blur(4px);
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
@@ -114,7 +89,6 @@
       linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
     background-size: 80px 80px;
   }
-  /* Floating photo placeholders */
   .hero-img {
     position: absolute;
     border-radius: 2px;
@@ -122,26 +96,10 @@
     opacity: 0;
     animation: fadeSlideIn 1s forwards;
   }
-  .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hero-img-1 {
-    width: 260px; height: 340px;
-    top: 12%; right: 18%;
-    animation-delay: 0.3s;
-    background: linear-gradient(135deg, #1c1a18 0%, #2e2b25 100%);
-  }
-  .hero-img-2 {
-    width: 180px; height: 220px;
-    top: 55%; right: 8%;
-    animation-delay: 0.5s;
-    background: linear-gradient(135deg, #1a1c1e 0%, #252628 100%);
-  }
-  .hero-img-3 {
-    width: 140px; height: 180px;
-    top: 20%; right: 42%;
-    animation-delay: 0.7s;
-    background: linear-gradient(135deg, #1e1a18 0%, #28241e 100%);
-  }
-  /* Placeholder inner content */
+  .hero-img-1 { width: 260px; height: 340px; top: 12%; right: 18%; animation-delay: 0.3s; background: linear-gradient(135deg, #1c1a18, #2e2b25); }
+  .hero-img-2 { width: 180px; height: 220px; top: 55%; right: 8%;  animation-delay: 0.5s; background: linear-gradient(135deg, #1a1c1e, #252628); }
+  .hero-img-3 { width: 140px; height: 180px; top: 20%; right: 42%; animation-delay: 0.7s; background: linear-gradient(135deg, #1e1a18, #28241e); }
+
   .img-placeholder {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
@@ -158,7 +116,7 @@
 
   @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .hero-eyebrow {
@@ -181,10 +139,7 @@
     opacity: 0;
     animation: fadeSlideIn 0.9s 0.2s forwards;
   }
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
+  .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub {
     margin-top: 32px;
     display: flex;
@@ -216,10 +171,7 @@
     transition: background 0.2s, color 0.2s;
     white-space: nowrap;
   }
-  .hero-cta:hover {
-    background: var(--gold);
-    color: var(--black);
-  }
+  .hero-cta:hover { background: var(--gold); color: var(--black); }
   .hero-scroll {
     position: absolute;
     bottom: 80px; right: 60px;
@@ -238,8 +190,7 @@
   .hero-scroll::after {
     content: '';
     display: block;
-    width: 1px;
-    height: 60px;
+    width: 1px; height: 60px;
     background: linear-gradient(var(--gold), transparent);
   }
 
@@ -256,12 +207,7 @@
     align-items: center;
     gap: 16px;
   }
-  .section-label::before {
-    content: '';
-    width: 40px; height: 1px;
-    background: var(--gold);
-    opacity: 0.5;
-  }
+  .section-label::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
   .section-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.2rem, 4vw, 4rem);
@@ -271,22 +217,32 @@
   }
   .section-title em { font-style: italic; color: var(--gold); }
 
+  /* MARQUEE */
+  .marquee-section { background: var(--gold); padding: 20px 0; overflow: hidden; white-space: nowrap; }
+  .marquee-track { display: inline-block; animation: marquee 22s linear infinite; }
+  .marquee-text {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--black);
+    padding: 0 48px;
+    opacity: 0.75;
+  }
+  .marquee-dot { display: inline-block; width: 5px; height: 5px; background: var(--black); border-radius: 50%; vertical-align: middle; opacity: 0.4; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
   /* SERVICES */
-  .services { background: var(--dark-gray); position: relative; overflow: hidden; }
+  .services { background: var(--dark-gray); }
   .services-inner { max-width: 1200px; margin: 0 auto; }
   .services-header { margin-bottom: 80px; }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .service-card {
     background: var(--black);
     padding: 56px 40px;
     position: relative;
     overflow: hidden;
     transition: background 0.3s;
-    cursor: none;
   }
   .service-card::before {
     content: '';
@@ -298,50 +254,34 @@
   }
   .service-card:hover { background: var(--mid-gray); }
   .service-card:hover::before { width: 100%; }
-  .service-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    margin-bottom: 40px;
-    opacity: 0.7;
-  }
-  .service-icon {
-    width: 52px; height: 52px;
-    margin-bottom: 32px;
-    opacity: 0.9;
-  }
-  .service-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-  .service-desc {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.76rem;
-    color: var(--gray);
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-  }
-  .service-tags {
-    margin-top: 32px;
+  .service-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 40px; opacity: 0.7; }
+  .service-icon { width: 52px; height: 52px; margin-bottom: 32px; opacity: 0.9; }
+  .service-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+  .service-desc { font-family: 'DM Mono', monospace; font-size: 0.76rem; color: var(--gray); line-height: 1.8; letter-spacing: 0.02em; }
+  .service-tags { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; padding: 6px 12px; border: 1px solid rgba(201,168,76,0.25); color: var(--gold); text-transform: uppercase; }
+
+  /* TOOLS */
+  .tools-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 12px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
-  .tag {
+  .tool-badge {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
+    font-size: 0.68rem;
     letter-spacing: 0.12em;
-    padding: 6px 12px;
-    border: 1px solid rgba(201,168,76,0.25);
+    padding: 10px 20px;
+    border: 1px solid rgba(201,168,76,0.3);
     color: var(--gold);
     text-transform: uppercase;
+    background: rgba(201,168,76,0.04);
   }
 
-  /* WORK / PORTFOLIO */
+  /* WORK */
   .work { background: var(--black); }
   .work-header {
     display: flex;
@@ -352,10 +292,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .work-filter {
-    display: flex;
-    gap: 8px;
-  }
+  .work-filter { display: flex; gap: 8px; }
   .filter-btn {
     font-family: 'DM Mono', monospace;
     font-size: 0.68rem;
@@ -365,13 +302,10 @@
     background: transparent;
     color: var(--gray);
     text-transform: uppercase;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.2s;
   }
-  .filter-btn.active, .filter-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .filter-btn.active, .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
   .work-grid {
     max-width: 1200px;
     margin: 0 auto;
@@ -379,37 +313,20 @@
     grid-template-columns: repeat(12, 1fr);
     gap: 16px;
   }
-  .work-item {
-    position: relative;
-    overflow: hidden;
-    cursor: none;
-  }
-  .work-item:nth-child(1) { grid-column: span 8; grid-row: span 1; }
-  .work-item:nth-child(2) { grid-column: span 4; grid-row: span 1; }
+  .work-item { position: relative; overflow: hidden; }
+  .work-item:nth-child(1) { grid-column: span 8; }
+  .work-item:nth-child(2) { grid-column: span 4; }
   .work-item:nth-child(3) { grid-column: span 4; }
   .work-item:nth-child(4) { grid-column: span 5; }
   .work-item:nth-child(5) { grid-column: span 3; }
-
-  .work-thumb {
-    width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.6s ease;
-    background: var(--mid-gray);
-  }
+  .work-thumb { width: 100%; aspect-ratio: 16/10; display: block; transition: transform 0.6s ease; background: var(--mid-gray); }
   .work-item:nth-child(2) .work-thumb,
   .work-item:nth-child(5) .work-thumb { aspect-ratio: 3/4; }
   .work-item:hover .work-thumb { transform: scale(1.04); }
-
   .work-thumb-inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 10px;
     color: rgba(201,168,76,0.3);
     font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
@@ -418,405 +335,126 @@
     border: 1px solid rgba(201,168,76,0.08);
     min-height: 240px;
   }
-
   .work-overlay {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.3s;
-    display: flex;
-    align-items: flex-end;
+    display: flex; align-items: flex-end;
     padding: 28px;
   }
   .work-item:hover .work-overlay { opacity: 1; }
-  .work-info {}
-  .work-cat {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .work-title-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--white);
-  }
+  .work-cat { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+  .work-title-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); }
 
   /* ABOUT */
-  .about {
-    background: var(--dark-gray);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .about-visual {
-    position: relative;
-    aspect-ratio: 3/4;
-    max-height: 600px;
-  }
+  .about { background: var(--dark-gray); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-visual { position: relative; aspect-ratio: 3/4; max-height: 600px; }
   .about-photo {
-    width: 85%;
-    height: 100%;
+    width: 85%; height: 100%;
     background: var(--mid-gray);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     color: rgba(201,168,76,0.25);
     font-family: 'DM Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.1em;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; gap: 10px;
     border: 1px solid rgba(201,168,76,0.08);
+    position: relative; overflow: hidden;
   }
   .about-photo::after {
     content: '';
     position: absolute;
     bottom: -20px; right: -20px;
-    width: 60%;
-    height: 60%;
+    width: 60%; height: 60%;
     border: 1px solid rgba(201,168,76,0.2);
     pointer-events: none;
   }
   .about-badge {
-    position: absolute;
-    bottom: 40px; right: 0;
-    background: var(--gold);
-    color: var(--black);
-    padding: 24px 28px;
-    text-align: center;
+    position: absolute; bottom: 40px; right: 0;
+    background: var(--gold); color: var(--black);
+    padding: 24px 28px; text-align: center;
   }
-  .about-badge-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    display: block;
-    line-height: 1;
-  }
-  .about-badge-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    display: block;
-    margin-top: 6px;
-  }
+  .about-badge-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; display: block; line-height: 1; }
+  .about-badge-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-top: 6px; }
   .about-content { padding-right: 40px; }
-  .about-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--gray);
-    line-height: 1.9;
-    letter-spacing: 0.02em;
-    margin: 32px 0 48px;
-  }
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    padding-top: 48px;
-    border-top: 1px solid rgba(255,255,255,0.06);
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--gold);
-    display: block;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    color: var(--gray);
-    text-transform: uppercase;
-    display: block;
-    margin-top: 6px;
-  }
+  .about-text { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--gray); line-height: 1.9; letter-spacing: 0.02em; margin: 32px 0 48px; }
+  .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); display: block; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gray); text-transform: uppercase; display: block; margin-top: 6px; }
 
   /* PROCESS */
   .process { background: var(--black); }
   .process-inner { max-width: 1000px; margin: 0 auto; }
   .process-header { margin-bottom: 80px; }
-  .process-steps { display: flex; flex-direction: column; gap: 0; }
   .process-step {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 48px;
+    display: grid; grid-template-columns: 100px 1fr; gap: 48px;
     padding: 48px 0;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     align-items: start;
-    transition: background 0.2s;
   }
   .process-step:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: rgba(201,168,76,0.15);
-    line-height: 1;
-    padding-top: 4px;
-    transition: color 0.3s;
-  }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: rgba(201,168,76,0.15); line-height: 1; transition: color 0.3s; }
   .process-step:hover .step-num { color: rgba(201,168,76,0.5); }
-  .step-body {}
-  .step-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-  }
-  .step-desc {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.76rem;
-    color: var(--gray);
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials { background: var(--dark-gray); overflow: hidden; }
-  .testimonials-inner { max-width: 1200px; margin: 0 auto; }
-  .testimonials-header { margin-bottom: 80px; }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  .testimonial-card {
-    background: var(--black);
-    padding: 44px 36px;
-    position: relative;
-  }
-  .testimonial-card::before {
-    content: '\201C';
-    position: absolute;
-    top: 28px; right: 32px;
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: rgba(201,168,76,0.1);
-    line-height: 1;
-  }
-  .testimonial-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--cream);
-    font-style: italic;
-    margin-bottom: 36px;
-  }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .author-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--mid-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.2);
-    flex-shrink: 0;
-  }
-  .author-name {
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: block;
-  }
-  .author-role {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-    display: block;
-    margin-top: 3px;
-  }
-  .stars {
-    color: var(--gold);
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 16px; }
+  .step-desc { font-family: 'DM Mono', monospace; font-size: 0.76rem; color: var(--gray); line-height: 1.8; letter-spacing: 0.02em; }
 
   /* CONTACT */
-  .contact {
-    background: var(--black);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
-    min-height: 600px;
-  }
-  .contact-left {
-    background: var(--gold);
-    padding: 100px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  .contact { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; min-height: 600px; }
+  .contact-left { background: var(--gold); padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; }
   .contact-left .section-label { color: var(--black); opacity: 0.6; }
   .contact-left .section-label::before { background: var(--black); }
   .contact-left .section-title { color: var(--black); }
   .contact-left .section-title em { color: var(--black); font-style: italic; opacity: 0.6; }
-  .contact-desc {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    color: rgba(0,0,0,0.65);
-    line-height: 1.8;
-    margin: 28px 0 48px;
-    letter-spacing: 0.02em;
-  }
+  .contact-desc { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(0,0,0,0.65); line-height: 1.8; margin: 28px 0 48px; letter-spacing: 0.02em; }
   .contact-details { display: flex; flex-direction: column; gap: 20px; }
   .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.78rem;
-    color: rgba(0,0,0,0.75);
-    letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 16px;
+    font-family: 'DM Mono', monospace; font-size: 0.78rem;
+    color: rgba(0,0,0,0.75); letter-spacing: 0.04em;
     text-decoration: none;
   }
-  .contact-detail-icon {
-    width: 36px; height: 36px;
-    background: rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .contact-right {
-    padding: 100px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  .contact-detail-icon { width: 36px; height: 36px; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-right { padding: 100px 80px; display: flex; flex-direction: column; justify-content: center; }
   .contact-form { display: flex; flex-direction: column; gap: 20px; }
   .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    color: var(--gray);
-    text-transform: uppercase;
-  }
+  .form-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gray); text-transform: uppercase; }
   .form-input, .form-select, .form-textarea {
-    background: var(--dark-gray);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--white);
-    padding: 14px 18px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-    letter-spacing: 0.02em;
+    background: var(--dark-gray); border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white); padding: 14px 18px;
+    font-family: 'DM Mono', monospace; font-size: 0.8rem;
+    transition: border-color 0.2s; outline: none; width: 100%; letter-spacing: 0.02em;
   }
-  .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: var(--gold);
-  }
-  .form-select { appearance: none; cursor: none; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-select { appearance: none; cursor: pointer; }
   .form-textarea { resize: vertical; min-height: 100px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .submit-btn {
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 18px 40px;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: none;
+    background: var(--gold); color: var(--black); border: none;
+    padding: 18px 40px; font-family: 'Syne', sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer;
     transition: background 0.2s, transform 0.1s;
-    margin-top: 8px;
-    align-self: flex-start;
+    margin-top: 8px; align-self: flex-start;
   }
   .submit-btn:hover { background: var(--gold-light); }
   .submit-btn:active { transform: scale(0.98); }
 
   /* FOOTER */
   footer {
-    background: var(--dark-gray);
-    padding: 48px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: var(--dark-gray); padding: 48px 60px;
+    display: flex; justify-content: space-between; align-items: center;
     border-top: 1px solid rgba(255,255,255,0.05);
   }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: var(--white);
-  }
-  .footer-copy {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-  }
-  .footer-social {
-    display: flex;
-    gap: 24px;
-  }
-  .footer-social a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--gray);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--white); }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gray); letter-spacing: 0.1em; }
+  .footer-social { display: flex; gap: 24px; }
+  .footer-social a { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gray); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
   .footer-social a:hover { color: var(--gold); }
-
-  /* Marquee */
-  .marquee-section {
-    background: var(--gold);
-    padding: 20px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .marquee-track {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-  }
-  .marquee-text {
-    display: inline-block;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--black);
-    padding: 0 48px;
-    opacity: 0.75;
-  }
-  .marquee-dot {
-    display: inline-block;
-    width: 5px; height: 5px;
-    background: var(--black);
-    border-radius: 50%;
-    vertical-align: middle;
-    opacity: 0.4;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
 
   @media (max-width: 900px) {
     nav { padding: 24px 30px; }
-    .nav-links { gap: 24px; display: none; }
+    .nav-links { display: none; }
     section { padding: 80px 30px; }
     .hero { padding: 0 30px 60px; }
     .hero-title { font-size: 3rem; }
@@ -826,7 +464,6 @@
     .work-item { grid-column: span 1 !important; }
     .about { grid-template-columns: 1fr; }
     .about-visual { max-height: 340px; }
-    .testimonials-grid { grid-template-columns: 1fr; }
     .contact { grid-template-columns: 1fr; }
     .contact-left, .contact-right { padding: 60px 30px; }
     footer { flex-direction: column; gap: 20px; text-align: center; }
@@ -835,12 +472,9 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Your Name</a>
+  <a href="#" class="nav-logo">Lalith</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#work">Work</a></li>
@@ -862,26 +496,26 @@
   </div>
   <div class="hero-img hero-img-2">
     <div class="img-placeholder">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
       Video
     </div>
   </div>
   <div class="hero-img hero-img-3">
     <div class="img-placeholder">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-      Client
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+      Event
     </div>
   </div>
 
   <div style="position:relative;z-index:2;">
     <p class="hero-eyebrow">Available for projects · Chennai, India</p>
     <h1 class="hero-title">
-      Visual<br>
-      Storyteller <em>&</em><br>
-      Editor
+      Lalith —<br>
+      Cinematic <em>&</em><br>
+      Visual Stories
     </h1>
     <div class="hero-sub">
-      <p class="hero-desc">I shoot, craft, and edit — turning moments into memories and brands into stories through photography, videography, and post-production.</p>
+      <p class="hero-desc">Video Editor · Photographer · Cinematic Visual Storyteller. Capturing moments, energy, and stories through visuals.</p>
       <a href="#work" class="hero-cta">
         View Work
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -895,22 +529,22 @@
 <!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
-    <span class="marquee-text">Photography</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Videography</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Event Photography</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Cinematic Videography</span><span class="marquee-dot"></span>
     <span class="marquee-text">Video Editing</span><span class="marquee-dot"></span>
     <span class="marquee-text">Color Grading</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Motion Graphics</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Short Films</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Brand Content</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Reels & Shorts</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Photography</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Videography</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Behind The Scenes</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Creative Reels</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Visual Storytelling</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Adobe Premiere Pro</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Event Photography</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Cinematic Videography</span><span class="marquee-dot"></span>
     <span class="marquee-text">Video Editing</span><span class="marquee-dot"></span>
     <span class="marquee-text">Color Grading</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Motion Graphics</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Short Films</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Brand Content</span><span class="marquee-dot"></span>
-    <span class="marquee-text">Reels & Shorts</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Behind The Scenes</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Creative Reels</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Visual Storytelling</span><span class="marquee-dot"></span>
+    <span class="marquee-text">Adobe Premiere Pro</span><span class="marquee-dot"></span>
   </div>
 </div>
 
@@ -926,18 +560,17 @@
         <p class="service-num">01</p>
         <svg class="service-icon" viewBox="0 0 52 52" fill="none" stroke="#c9a84c" stroke-width="1.5">
           <rect x="6" y="14" width="32" height="24" rx="2"/>
-          <circle cx="22" cy="26" r="7"/>
-          <circle cx="22" cy="26" r="3"/>
+          <circle cx="22" cy="26" r="7"/><circle cx="22" cy="26" r="3"/>
           <rect x="32" y="18" width="6" height="4" rx="1"/>
           <circle cx="12" cy="18" r="2"/>
         </svg>
         <h3 class="service-name">Photography</h3>
-        <p class="service-desc">From portraits and events to brand campaigns — I capture authentic moments with a cinematic, story-driven eye.</p>
+        <p class="service-desc">Covering large-scale culturals, tech fests, live performances, celebrity appearances, and stage moments — with a cinematic, storytelling-first eye.</p>
         <div class="service-tags">
-          <span class="tag">Portraits</span>
           <span class="tag">Events</span>
-          <span class="tag">Brand</span>
-          <span class="tag">Product</span>
+          <span class="tag">Culturals</span>
+          <span class="tag">Portraits</span>
+          <span class="tag">Live Moments</span>
         </div>
       </div>
       <div class="service-card">
@@ -949,11 +582,11 @@
           <circle cx="10" cy="26" r="2"/>
         </svg>
         <h3 class="service-name">Videography</h3>
-        <p class="service-desc">Professional video production for weddings, corporate events, music, and brand storytelling — shot with precision and purpose.</p>
+        <p class="service-desc">Cinematic video coverage for events, college fests, brand content, and behind-the-scenes productions — capturing atmosphere and energy in every frame.</p>
         <div class="service-tags">
-          <span class="tag">Weddings</span>
-          <span class="tag">Corporate</span>
-          <span class="tag">Music Video</span>
+          <span class="tag">Fest Coverage</span>
+          <span class="tag">BTS</span>
+          <span class="tag">Brand</span>
           <span class="tag">Reels</span>
         </div>
       </div>
@@ -968,12 +601,17 @@
           <line x1="26" y1="12" x2="26" y2="22"/>
         </svg>
         <h3 class="service-name">Video Editing</h3>
-        <p class="service-desc">Your raw footage, transformed. Color grading, sound design, motion graphics, and seamless cuts that bring the story to life.</p>
+        <p class="service-desc">Transforming raw footage into cinematic stories — long-format YouTube content, reel-style promos, and brand edits with clean visuals and precise pacing.</p>
         <div class="service-tags">
+          <span class="tag">Premiere Pro</span>
           <span class="tag">Color Grade</span>
-          <span class="tag">Motion FX</span>
-          <span class="tag">Sound</span>
-          <span class="tag">Premiere</span>
+          <span class="tag">YouTube</span>
+          <span class="tag">Promos</span>
+        </div>
+        <div class="tools-row">
+          <span class="tool-badge">Adobe Premiere Pro</span>
+          <span class="tool-badge">Nikon Ecosystem</span>
+          <span class="tool-badge">Event Workflow</span>
         </div>
       </div>
     </div>
@@ -985,7 +623,7 @@
   <div class="work-header">
     <div>
       <p class="section-label">Portfolio</p>
-      <h2 class="section-title">Selected<br><em>work</em></h2>
+      <h2 class="section-title">Featured<br><em>work</em></h2>
     </div>
     <div class="work-filter">
       <button class="filter-btn active">All</button>
@@ -1000,27 +638,27 @@
       <div class="work-thumb">
         <div class="work-thumb-inner">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Upload your best photo/video here
+          Upload your event photos here
         </div>
       </div>
       <div class="work-overlay">
         <div class="work-info">
-          <p class="work-cat">Photography · Brand</p>
-          <p class="work-title-text">Fashion Campaign 2024</p>
+          <p class="work-cat">Photography · Event Coverage</p>
+          <p class="work-title-text">Recharge & Titanium Fest</p>
         </div>
       </div>
     </div>
     <div class="work-item">
       <div class="work-thumb">
         <div class="work-thumb-inner">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-          Video Project
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          BTS Footage
         </div>
       </div>
       <div class="work-overlay">
         <div class="work-info">
-          <p class="work-cat">Videography · Wedding</p>
-          <p class="work-title-text">Intimate Wedding Film</p>
+          <p class="work-cat">Editing · YouTube BTS</p>
+          <p class="work-title-text">Arun Siddharth Workshop</p>
         </div>
       </div>
     </div>
@@ -1028,13 +666,13 @@
       <div class="work-thumb">
         <div class="work-thumb-inner">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          Portrait
+          Celebrity Shoots
         </div>
       </div>
       <div class="work-overlay">
         <div class="work-info">
-          <p class="work-cat">Photography · Portrait</p>
-          <p class="work-title-text">Studio Portraits</p>
+          <p class="work-cat">Photography · Personalities</p>
+          <p class="work-title-text">A.R. Rahman & Artists</p>
         </div>
       </div>
     </div>
@@ -1042,27 +680,27 @@
       <div class="work-thumb">
         <div class="work-thumb-inner">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="6" y="10" width="12" height="12" rx="1"/><rect x="2" y="6" width="20" height="14" rx="1"/><line x1="2" y1="14" x2="22" y2="14"/></svg>
-          Edit Reel
+          Promo Edit
         </div>
       </div>
       <div class="work-overlay">
         <div class="work-info">
-          <p class="work-cat">Editing · Corporate</p>
-          <p class="work-title-text">Brand Promo Video</p>
+          <p class="work-cat">Editing · Freelance</p>
+          <p class="work-title-text">Brand & Institution Reels</p>
         </div>
       </div>
     </div>
     <div class="work-item">
       <div class="work-thumb">
         <div class="work-thumb-inner">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-          Reel
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          Live Moments
         </div>
       </div>
       <div class="work-overlay">
         <div class="work-info">
-          <p class="work-cat">Videography · Social</p>
-          <p class="work-title-text">Instagram Reel Series</p>
+          <p class="work-cat">Videography · Events</p>
+          <p class="work-title-text">Stage & Performance Films</p>
         </div>
       </div>
     </div>
@@ -1077,29 +715,30 @@
       Add your photo here
     </div>
     <div class="about-badge">
-      <span class="about-badge-num">5+</span>
-      <span class="about-badge-label">Years of<br>Experience</span>
+      <span class="about-badge-num">2+</span>
+      <span class="about-badge-label">Years<br>Freelancing</span>
     </div>
   </div>
   <div class="about-content">
     <p class="section-label">About Me</p>
     <h2 class="section-title">Behind the<br><em>lens & timeline</em></h2>
     <p class="about-text">
-      I'm a visual storyteller based in Chennai, India, with a passion for finding the extraordinary in the everyday. Whether I'm behind a camera capturing a fleeting moment or in the edit suite shaping a narrative, I bring the same obsessive attention to detail and emotional intelligence to every project.<br><br>
-      Clients trust me to deliver work that doesn't just look good — it feels right. From fast-paced brand reels to intimate documentary films, I've worked across industries with a consistent commitment to craft.
+      I'm Lalith, a Chennai-based creative originally from Madurai, currently pursuing B.Tech Information Technology at Rajalakshmi Engineering College. My passion for photography, videography, and editing started as a personal interest and evolved into freelance creative work during my second year.<br><br>
+      Being part of my college photography club gave me real event experience — covering major culturals and tech fests including Recharge and Titanium, where I photographed personalities including A.R. Rahman, Kollywood artists, singers, and industry guests.<br><br>
+      My style combines clean visuals, cinematic framing, and storytelling-focused editing. I enjoy teamwork, fast-paced productions, and organizing creative workflows during live event coverage.
     </p>
     <div class="about-stats">
       <div>
-        <span class="stat-num">120+</span>
-        <span class="stat-label">Projects Done</span>
+        <span class="stat-num">2+</span>
+        <span class="stat-label">Fests Covered</span>
       </div>
       <div>
-        <span class="stat-num">80+</span>
-        <span class="stat-label">Happy Clients</span>
+        <span class="stat-num">REC</span>
+        <span class="stat-label">Photo Club</span>
       </div>
       <div>
-        <span class="stat-num">15+</span>
-        <span class="stat-label">Awards Won</span>
+        <span class="stat-num">IT</span>
+        <span class="stat-label">B.Tech Student</span>
       </div>
     </div>
   </div>
@@ -1116,74 +755,29 @@
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-body">
-          <h3 class="step-title">Discovery & Brief</h3>
-          <p class="step-desc">We start with a conversation — understanding your vision, goals, audience, and the story you want to tell. This shapes every decision that follows.</p>
+          <h3 class="step-title">Brief & Vision</h3>
+          <p class="step-desc">We start with a conversation about your project — the event, the story, the mood you want to capture. Understanding the vision shapes every creative decision.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-body">
           <h3 class="step-title">Pre-Production</h3>
-          <p class="step-desc">Shot lists, mood boards, location scouting, and scheduling. No surprises on shoot day — just focused, intentional execution.</p>
+          <p class="step-desc">Shot plans, gear setup, schedule coordination, and location walk-through. Fast-paced events demand preparation — so nothing important is missed on the day.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-body">
-          <h3 class="step-title">Shoot / Production</h3>
-          <p class="step-desc">Camera in hand, I capture the story — adapting in real time while keeping the visual direction consistent and professional.</p>
+          <h3 class="step-title">Shoot & Capture</h3>
+          <p class="step-desc">On-ground with the Nikon ecosystem — capturing live performances, candid moments, stage energy, and behind-the-scenes authenticity as it happens.</p>
         </div>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
         <div class="step-body">
           <h3 class="step-title">Edit & Deliver</h3>
-          <p class="step-desc">Color grading, sound design, cuts, and motion — until the final product earns a "wow." Delivered in your preferred format with revision rounds included.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="testimonials-inner">
-    <div class="testimonials-header">
-      <p class="section-label">Client Love</p>
-      <h2 class="section-title">What clients<br><em>say</em></h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"The wedding film made us cry every single time we watched it. Every small moment was captured with such care — we felt the emotion all over again."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">R</div>
-          <div>
-            <span class="author-name">Riya & Karthik</span>
-            <span class="author-role">Wedding Clients</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Our brand campaign turned out better than we imagined. The edits were sharp, the color grading was stunning, and delivery was ahead of schedule."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">A</div>
-          <div>
-            <span class="author-name">Arjun Mehta</span>
-            <span class="author-role">Marketing Director, Veloce</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I sent raw footage and got back a cinematic masterpiece. The music sync alone was worth every rupee. Will definitely hire again for our next launch."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">P</div>
-          <div>
-            <span class="author-name">Priya Nair</span>
-            <span class="author-role">Founder, Studio Bloom</span>
-          </div>
+          <p class="step-desc">Color grading, sound design, precise cuts, and cinematic pacing — in Adobe Premiere Pro — until the final output tells the story exactly as it felt in the room.</p>
         </div>
       </div>
     </div>
@@ -1195,25 +789,37 @@
   <div class="contact-left">
     <p class="section-label">Get in Touch</p>
     <h2 class="section-title">Let's create<br><em>together</em></h2>
-    <p class="contact-desc">Have a project in mind? I'd love to hear about it. Whether you're planning a campaign, event, or just need your footage transformed — let's talk.</p>
+    <p class="contact-desc">Have a project, event, or edit in mind? I'd love to hear about it. Whether it's a brand reel, college fest, or a YouTube BTS — let's make it cinematic.</p>
     <div class="contact-details">
-      <a href="mailto:hello@yourname.com" class="contact-detail">
+      <a href="mailto:lalithcaptures@gmail.com" class="contact-detail">
         <div class="contact-detail-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-        hello@yourname.com
+        lalithcaptures@gmail.com
       </a>
-      <a href="tel:+919876543210" class="contact-detail">
+      <a href="https://www.instagram.com/lalith_captures" target="_blank" class="contact-detail">
         <div class="contact-detail-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.38 2 2 0 0 1 3.55 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.87-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </div>
-        +91 98765 43210
+        @lalith_captures (Photography)
+      </a>
+      <a href="https://www.instagram.com/lalith.here" target="_blank" class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        @lalith.here (Personal)
+      </a>
+      <a href="https://www.linkedin.com/in/lalith-santhosh-c-r-9255b3358" target="_blank" class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        LinkedIn Profile
       </a>
       <span class="contact-detail">
         <div class="contact-detail-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
-        Chennai, Tamil Nadu
+        Chennai, Tamil Nadu (from Madurai)
       </span>
     </div>
   </div>
@@ -1222,21 +828,22 @@
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Your Name</label>
-          <input type="text" class="form-input" placeholder="Priya Sharma">
+          <input type="text" class="form-input" placeholder="Your name">
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="priya@email.com">
+          <input type="email" class="form-input" placeholder="your@email.com">
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">Service</label>
         <select class="form-select">
           <option value="">Select a service</option>
-          <option>Photography</option>
-          <option>Videography</option>
+          <option>Event Photography</option>
+          <option>Cinematic Videography</option>
           <option>Video Editing</option>
-          <option>Photography + Video Package</option>
+          <option>Creative Reels</option>
+          <option>BTS Content</option>
           <option>Full Package</option>
         </select>
       </div>
@@ -1252,49 +859,28 @@
       </div>
       <div class="form-group">
         <label class="form-label">Tell me about your project</label>
-        <textarea class="form-textarea" placeholder="Describe your vision, timeline, and any specific requirements..."></textarea>
+        <textarea class="form-textarea" placeholder="Describe your event, vision, timeline, and requirements..."></textarea>
       </div>
-      <button class="submit-btn">Send Message →</button>
+      <button class="submit-btn" onclick="this.textContent='Message Sent ✓'; this.style.background='#4a7c59'; this.style.color='#fff';">Send Message →</button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">Your Name</span>
-  <span class="footer-copy">© 2025 · All rights reserved</span>
+  <span class="footer-logo">Lalith</span>
+  <span class="footer-copy">© 2025 · Lalith · All rights reserved</span>
   <div class="footer-social">
-    <a href="#">Instagram</a>
-    <a href="#">YouTube</a>
-    <a href="#">Vimeo</a>
-    <a href="#">LinkedIn</a>
+    <a href="https://www.instagram.com/lalith_captures" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/lalith-santhosh-c-r-9255b3358" target="_blank">LinkedIn</a>
   </div>
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
   // Filter buttons
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  filterBtns.forEach(btn => {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
@@ -1307,13 +893,6 @@
       const factor = (i + 1) * 0.4;
       el.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
     });
-  });
-
-  // Submit button
-  document.querySelector('.submit-btn').addEventListener('click', function() {
-    this.textContent = 'Message Sent ✓';
-    this.style.background = '#4a7c59';
-    this.style.color = '#fff';
   });
 </script>
 </body>
